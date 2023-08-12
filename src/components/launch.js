@@ -26,6 +26,7 @@ import Error from "./error";
 import Breadcrumbs from "./breadcrumbs";
 import FavoriteButton from "./favorite-button"
 import Loader from './loader';
+import RocketViewer from "./rocket-viewer";
 
 const numberFormatter = new Intl.NumberFormat();
 
@@ -104,6 +105,7 @@ function Header({ launch }) {
           id={launch.id} 
           type="launches" 
         />
+        <RocketViewer />
       </Flex>
       <Stack isInline spacing="3">
         <Badge colorScheme="purple" fontSize={["xs", "md"]}>
