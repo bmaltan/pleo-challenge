@@ -12,7 +12,6 @@ import {
   SimpleGrid,
   Box,
   Text,
-  Spinner,
   Image,
   Link,
   Stack,
@@ -25,6 +24,8 @@ import { useSpaceXQuery } from "../utils/use-space-x";
 import { formatDateTime } from "../utils/format-date";
 import Error from "./error";
 import Breadcrumbs from "./breadcrumbs";
+import FavoriteButton from "./favorite-button"
+import Loader from './loader';
 
 const numberFormatter = new Intl.NumberFormat();
 
@@ -37,13 +38,7 @@ export default function Launch() {
   const launch = data?.docs[0];
 
   if (error) return <Error />;
-  if (!launch) {
-    return (
-      <Flex justifyContent="center" alignItems="center" minHeight="50vh">
-        <Spinner size="lg" />
-      </Flex>
-    );
-  }
+  if (!launch) return <Loader />;
 
   return (
     <div>
@@ -90,17 +85,26 @@ function Header({ launch }) {
         objectFit="contain"
         objectPosition="bottom"
       />
-      <Heading
-        color="white"
-        display="inline"
-        backgroundColor="#718096b8"
-        fontSize={["lg", "5xl"]}
-        px="4"
-        py="2"
-        borderRadius="lg"
+      <Flex 
+        align="center"
+        gap="1rem"
       >
-        {launch.name}
-      </Heading>
+        <Heading
+          color="white"
+          display="inline"
+          backgroundColor="#718096b8"
+          fontSize={["lg", "5xl"]}
+          px="4"
+          py="2"
+          borderRadius="lg"
+        >
+          {launch.name}
+        </Heading>
+        <FavoriteButton 
+          id={launch.id} 
+          type="launches" 
+        />
+      </Flex>
       <Stack isInline spacing="3">
         <Badge colorScheme="purple" fontSize={["xs", "md"]}>
           #{launch.flight_number}

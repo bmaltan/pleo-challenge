@@ -1,11 +1,15 @@
 import { Routes, Route } from "react-router-dom";
-import { Flex, Text } from "@chakra-ui/react";
+import { Flex, Text, IconButton } from "@chakra-ui/react";
 
 import Launches from "./launches";
 import Launch from "./launch";
 import Home from "./home";
 import LaunchPads from "./launch-pads";
 import LaunchPad from "./launch-pad";
+import UserDrawer from "./user-drawer";
+import { useUiState } from '../stores/ui-state'
+import { User } from "react-feather";
+import { useShortcuts } from "./shortcuts";
 
 export default function App() {
   return (
@@ -23,6 +27,9 @@ export default function App() {
 }
 
 function NavBar() {
+  const { toggleUserDrawer } = useUiState();
+  useShortcuts();
+
   return (
     <Flex
       as="nav"
@@ -41,6 +48,17 @@ function NavBar() {
       >
         ¡SPACE·R0CKETS!
       </Text>
+      <IconButton
+        isRound
+        variant='solid'
+        colorScheme='blue'
+        aria-label='User menu'
+        fontSize='20px'
+        icon={<User />}
+        onClick={() => toggleUserDrawer(true)}
+        data-testid="user-drawer"
+      />
+      <UserDrawer />
     </Flex>
   );
 }

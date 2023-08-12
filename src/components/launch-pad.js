@@ -11,7 +11,6 @@ import {
   SimpleGrid,
   Box,
   Text,
-  Spinner,
   Stack,
   AspectRatio,
 } from "@chakra-ui/react";
@@ -19,7 +18,9 @@ import {
 import { useSpaceXQuery } from "../utils/use-space-x";
 import Error from "./error";
 import Breadcrumbs from "./breadcrumbs";
-import { LaunchItem } from "./launches";
+import LaunchItem from "./launch-item";
+import Loader from './loader';
+import FavoriteButton from "./favorite-button"
 
 export default function LaunchPad() {
   let { launchPadId } = useParams();
@@ -35,13 +36,7 @@ export default function LaunchPad() {
   });
 
   if (error) return <Error />;
-  if (!launchPad) {
-    return (
-      <Flex justifyContent="center" alignItems="center" minHeight="50vh">
-        <Spinner size="lg" />
-      </Flex>
-    );
-  }
+  if (!launchPad) return <Loader />;
 
   return (
     <div>
@@ -82,16 +77,25 @@ function Header({ launchPad }) {
       alignItems="flex-end"
       justifyContent="space-between"
     >
-      <Heading
-        color="gray.900"
-        display="inline"
-        mx={[2, 4]}
-        my="2"
-        fontSize={["md", "3xl"]}
-        borderRadius="lg"
+      <Flex
+        align="center"
+        gap="1rem"
       >
-        {launchPad.full_name}
-      </Heading>
+        <Heading
+          color="gray.900"
+          display="inline"
+          ml={[2, 4]}
+          my="2"
+          fontSize={["md", "3xl"]}
+          borderRadius="lg"
+        >
+          {launchPad.full_name}
+        </Heading>
+        <FavoriteButton 
+          id={launchPad.id} 
+          type="launches" 
+        />
+      </Flex>
       <Stack isInline spacing="3">
         <Badge colorScheme="purple" fontSize={["sm", "md"]}>
           {launchPad.launch_successes}/{launchPad.launch_attempts} successful
