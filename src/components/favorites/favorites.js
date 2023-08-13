@@ -8,12 +8,12 @@ import {
   Text,
   Flex,
 } from '@chakra-ui/react';
-import { useSpaceXQuery } from "../utils/use-space-x";
-import Error from "./error";
-import { useFavorites } from '../stores/favorites-state';
-import LaunchItem from "./launch-item";
-import LaunchPadItem from "./launch-pad-item";
-import Loader from './loader';
+import { useSpaceXQuery } from "../../utils/use-space-x";
+import Error from "../shared/error";
+import { useFavorites } from '../../stores/favorites-state';
+import LaunchItem from "../launches/launch-item";
+import LaunchPadItem from "../launch-pads/launch-pad-item";
+import Loader from '../shared/loader';
 
 function FavoritesList(type) {
   const { favoritesList } = useFavorites(type);

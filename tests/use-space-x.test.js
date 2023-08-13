@@ -1,4 +1,4 @@
-import { queryFetcher } from "./use-space-x";
+import { queryFetcher } from "../src/utils/use-space-x";
 
 beforeEach(() => {
   fetch.resetMocks();

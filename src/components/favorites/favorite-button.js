@@ -1,6 +1,6 @@
 import { IconButton, useToast } from "@chakra-ui/react";
 import { X, Star } from "react-feather";
-import { useFavorites } from '../stores/favorites-state'
+import { useFavorites } from '../../stores/favorites-state'
 
 export default function FavoriteButton(props) {
   const { id, type } = props;

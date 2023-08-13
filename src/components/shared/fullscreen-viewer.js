@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { useEffect } from 'react';
+import { Button } from "@chakra-ui/react";
 
 const Container = styled.div`
   position: fixed;
@@ -10,14 +11,11 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-const EscNotice = styled.div`
+const CloseContainer = styled.div`
   position: absolute;
-  left: 1rem;
+  right: 2rem;
   top: 1rem;
   z-index: 101;
-  color: white;
-  font-size: 2rem;
-  font-weight: bold;
 `;
 
 export default function FullScreenViewer(props) {
@@ -35,7 +33,14 @@ export default function FullScreenViewer(props) {
 
   return (
     <Container id="full-screen-viewer">
-      <EscNotice>Press ESC to exit</EscNotice>
+      <CloseContainer>
+        <Button 
+          data-testid="close-viewer"
+          onClick={() => setIsViewerOpen(false)}
+        >
+          Close
+        </Button>
+      </CloseContainer>
       {props.children}
     </Container>
   );

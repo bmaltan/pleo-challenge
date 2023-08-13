@@ -15,12 +15,12 @@ import {
   AspectRatio,
 } from "@chakra-ui/react";
 
-import { useSpaceXQuery } from "../utils/use-space-x";
-import Error from "./error";
-import Breadcrumbs from "./breadcrumbs";
-import LaunchItem from "./launch-item";
-import Loader from './loader';
-import FavoriteButton from "./favorite-button"
+import { useSpaceXQuery } from "../../utils/use-space-x";
+import Error from "../shared/error";
+import Breadcrumbs from "../shared/breadcrumbs";
+import LaunchItem from "../launches/launch-item";
+import Loader from '../shared/loader';
+import FavoriteButton from "../favorites/favorite-button"
 
 export default function LaunchPad() {
   let { launchPadId } = useParams();

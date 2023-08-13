@@ -1,9 +1,9 @@
 import { SimpleGrid } from "@chakra-ui/react";
 
-import Error from "./error";
-import Breadcrumbs from "./breadcrumbs";
-import LoadMoreButton from "./load-more-button";
-import { useSpaceXPaginatedQuery } from "../utils/use-space-x";
+import Error from "../shared/error";
+import Breadcrumbs from "../shared/breadcrumbs";
+import LoadMoreButton from "../shared/load-more-button";
+import { useSpaceXPaginatedQuery } from "../../utils/use-space-x";
 import LaunchPadItem from "./launch-pad-item";
 
 const PAGE_SIZE = 12;

@@ -4,15 +4,15 @@ import { useEffect, useCallback } from 'react';
 export function useShortcuts() {
   const { toggleUserDrawer } = useUiState();
 
+  const fullScreenViewerOpen = !!document.getElementById('full-screen-viewer');
+
   const handleKeyDown = useCallback((event) => {
     if (fullScreenViewerOpen) return;
 
     if (event.key === '/') {
       toggleUserDrawer();
     }
-  }, [toggleUserDrawer]);
-
-  const fullScreenViewerOpen = !!document.getElementById('full-screen-viewer');
+  }, [fullScreenViewerOpen, toggleUserDrawer]);
 
   useEffect(() => { 
     document.addEventListener('keydown', handleKeyDown);

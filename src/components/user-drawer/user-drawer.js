@@ -8,8 +8,8 @@ import {
   DrawerContent,
   DrawerCloseButton,
 } from '@chakra-ui/react'
-import { useUiState } from '../stores/ui-state'
-import FavoritesContainer from './favorites';
+import { useUiState } from '../../stores/ui-state'
+import FavoritesContainer from '../favorites/favorites';
 import UserCard from './user-card';
 
 export default function UserDrawer(props) {

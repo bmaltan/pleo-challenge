@@ -20,13 +20,13 @@ import {
   Tooltip,
 } from "@chakra-ui/react";
 
-import { useSpaceXQuery } from "../utils/use-space-x";
-import { formatDateTime } from "../utils/format-date";
-import Error from "./error";
-import Breadcrumbs from "./breadcrumbs";
-import FavoriteButton from "./favorite-button"
-import Loader from './loader';
-import RocketViewer from "./rocket-viewer";
+import { useSpaceXQuery } from "../../utils/use-space-x";
+import { formatDateTime } from "../../utils/format-date";
+import Error from "../shared/error";
+import Breadcrumbs from "../shared/breadcrumbs";
+import FavoriteButton from "../favorites/favorite-button"
+import Loader from '../shared/loader';
+import RocketViewer from "../rocket-viewer/rocket-viewer";
 
 const numberFormatter = new Intl.NumberFormat();
 

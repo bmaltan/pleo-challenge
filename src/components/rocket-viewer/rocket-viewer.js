@@ -5,7 +5,8 @@ import { Canvas, useLoader, extend } from '@react-three/fiber';
 import { Effects, OrbitControls } from "@react-three/drei";
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { FilmPass, UnrealBloomPass } from 'three-stdlib'
-import FullScreenViewer from './fullscreen-viewer';
+import FullScreenViewer from '../shared/fullscreen-viewer';
+import styled from 'styled-components';
 
 extend({ UnrealBloomPass, FilmPass });
 function Scene() {
@@ -20,6 +21,17 @@ function Scene() {
     </>
   )
 }
+
+const Controls = styled.div`
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 101;
+  color: white;
+  font-weight: bold;
+  background: rgba(0,0,0,0.5);
+  padding: 0.5rem;
+`;
 
 export default function RocketViewer() {
   const [isViewerOpen, setIsViewerOpen] = useState(false);
@@ -46,6 +58,12 @@ export default function RocketViewer() {
             <primitive object={gltf.scene} />
             <Scene />
           </Canvas>
+          <Controls>
+            <p>Drag to rotate</p>
+            <p>Pinch or scroll to zoom</p>
+            <p>Ctrl/Cmd + drag to move</p>
+            <p>Esc to close</p>
+          </Controls>
         </FullScreenViewer>
       )}
     </>

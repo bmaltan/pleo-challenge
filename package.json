@@ -29,7 +29,7 @@
   "scripts": {
     "start": "GENERATE_SOURCEMAP=false react-scripts start",
     "build": "react-scripts build",
-    "test": "playwright install && playwright test test/* --ui"
+    "test": "playwright install && playwright test --ui"
   },
   "eslintConfig": {
     "extends": [

@@ -1,8 +1,8 @@
-import { formatDate } from "../utils/format-date";
+import { formatDate } from "../../utils/format-date";
 import { Badge, Box, Image, Text, Flex, Grid } from "@chakra-ui/react";
 import { format as timeAgo } from "timeago.js";
 import { Link } from "react-router-dom";
-import FavoriteButton from "./favorite-button"
+import FavoriteButton from "../favorites/favorite-button"
 
 export default function LaunchItem({ launch, size }) {
   const imageHeight = size === "sm" ? ["100px", null, "150px"] : ["200px", null, "300px"];

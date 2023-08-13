@@ -1,6 +1,6 @@
 import { Badge, Box, Text, Flex, Grid } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import FavoriteButton from "./favorite-button"
+import FavoriteButton from "../favorites/favorite-button"
 
 export default function LaunchPadItem({ launchPad }) {
   return (
